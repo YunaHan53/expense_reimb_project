@@ -1,4 +1,4 @@
-package expense_reimb_project;
+package models;
 
 public class Address {
 
