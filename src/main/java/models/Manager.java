@@ -34,7 +34,7 @@ public class Manager {
 	
 	@Override
 	public String toString() {
-		return "Employee ID: " + manNo + 
+		return "Manager ID: " + manNo + 
 				", Name: " + manName + 
 				"\n";
 	}

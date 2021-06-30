@@ -32,7 +32,7 @@ public class Request {
 		this.isApproved = isApproved;
 	}
 	
-	// Getter/Setter for isApproved
+	// Getter/Setter for content
 	public String content() {
 		return content;
 	}
