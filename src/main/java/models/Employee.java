@@ -1,17 +1,24 @@
 package models;
 
+import java.util.List;
+
 public class Employee {
 
 	// Declaring employee variables
 	private int empNo;
 	private String empName;
+	private String jobTitle;
+	private double salary;
+	public List<Request> requests;
 
 	
 	// Custom constructor
-	public Employee(int empNo, String empName) {
+	public Employee(int empNo, String empName, String jobTitle, double salary) {
 		// TODO Auto-generated constructor stub
 		this.empNo = empNo;
 		this.empName = empName;
+		this.jobTitle = jobTitle;
+		this.salary = salary;
 	}
 
 	public Employee() {
@@ -34,6 +41,22 @@ public class Employee {
 	}
 	public void setEmpName(String empName) {
 		this.empName = empName;
+	}
+	
+	// Getter/Setter for Job Title
+	public String getJobTitle() {
+		return jobTitle;
+	}
+	public void setJobTitle(String jobTitle) {
+		this.jobTitle = jobTitle;
+	}
+
+	// Getter/Setter for Salary
+	public double getSalary() {
+		return salary;
+	}
+	public void setSalary(double salary) {
+		this.salary = salary;
 	}
 	
 	

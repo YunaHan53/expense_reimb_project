@@ -5,29 +5,29 @@ import java.util.List;
 public class User {
 
 	// Declaring user variables
-	private int userNo;
+	private int userId;
 	private String userName;
-	private String password;
+	private String pass;
 	private String email;
 	public List<Mail> mailbox;
 
 	
 	// Custom constructor
-	public User(int userNo, String userName, String password, String email) {
-		this.userNo = userNo;
+	public User(int userId, String userName, String pass, String email) {
+		this.userId = userId;
 		this.userName = userName;
-		this.password = password;
+		this.pass = pass;
 		this.email = email;
 	}
 
 
 
 	// Getter/Setter for User ID
-	public int getUserNo() {
-		return userNo;
+	public int getUserId() {
+		return userId;
 	}
-	public void setUserNo(int userNo) {
-		this.userNo = userNo;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	
 	
@@ -44,8 +44,8 @@ public class User {
 	public String getPassword() {
 		return userName;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPassword(String pass) {
+		this.pass = pass;
 	}
 	
 	// Getter/Setter for password
@@ -59,9 +59,9 @@ public class User {
 	
 	@Override
 	public String toString() {
-		return "Employee ID: " + userNo + 
+		return "Employee ID: " + userId + 
 				", Name: " + userName + 
-				", Password" + password + 
+				", Password" + pass + 
 				", Email: " + email + "\n";
 	}
 }
