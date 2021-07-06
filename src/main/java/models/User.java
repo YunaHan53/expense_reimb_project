@@ -6,6 +6,8 @@ public class User {
 
 	// Declaring user variables
 	private int userId;
+	private String firstName;
+	private String lastName;
 	private String userName;
 	private String pass;
 	private String email;
@@ -13,8 +15,10 @@ public class User {
 
 	
 	// Custom constructor
-	public User(int userId, String userName, String pass, String email) {
+	public User(int userId, String firstName, String lastName, String userName, String pass, String email) {
 		this.userId = userId;
+		this.setFirstName(firstName);
+		this.lastName = lastName;
 		this.userName = userName;
 		this.pass = pass;
 		this.email = email;
@@ -56,12 +60,22 @@ public class User {
 		this.email = email;
 	}
 	
+	// Getter/Setter for firstName
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 	
 	@Override
 	public String toString() {
 		return "Employee ID: " + userId + 
-				", Name: " + userName + 
+				", Name: " + firstName + " " + lastName +
+				", Username: " + userName + 
 				", Password" + pass + 
 				", Email: " + email + "\n";
 	}
+
 }
