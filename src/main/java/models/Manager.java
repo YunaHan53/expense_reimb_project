@@ -8,7 +8,7 @@ public class Manager {
 
 	
 	// Custom constructor
-	public Manager(int manNo, String manName, double salary, Address address) {
+	public Manager(int manNo, String manName, double salary) {
 		this.manNo = manNo;
 		this.manName = manName;
 	}

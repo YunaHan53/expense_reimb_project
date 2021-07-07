@@ -11,18 +11,28 @@ public class User {
 	private String userName;
 	private String pass;
 	private String email;
+	private String jobPosition;
 	public List<Mail> mailbox;
 
 	
 	// Custom constructor
-	public User(int userId, String firstName, String lastName, String userName, String pass, String email) {
+	public User(int userId, String firstName, String lastName, String userName, String pass, String email, String jobPosition) {
 		this.userId = userId;
 		this.setFirstName(firstName);
 		this.lastName = lastName;
 		this.userName = userName;
 		this.pass = pass;
 		this.email = email;
+		this.setJobPosition(jobPosition);
 	}
+
+
+
+
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+
 
 
 
@@ -69,13 +79,26 @@ public class User {
 		this.firstName = firstName;
 	}
 	
+	// Getter/Setter for jobPosition
+	public String getJobPosition() {
+		return jobPosition;
+	}
+
+	public void setJobPosition(String jobPosition) {
+		this.jobPosition = jobPosition;
+	}
+	
 	@Override
 	public String toString() {
 		return "Employee ID: " + userId + 
 				", Name: " + firstName + " " + lastName +
 				", Username: " + userName + 
 				", Password" + pass + 
-				", Email: " + email + "\n";
+				", Email: " + email + " " + 
+				", Job Position: " + jobPosition + "\n";
 	}
+
+
+
 
 }
