@@ -9,8 +9,8 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String userName;
-	private String pass;
 	private String email;
+	private String pass;
 	private String jobPosition;
 	public List<Mail> mailbox;
 
@@ -77,6 +77,15 @@ public class User {
 
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
+	}
+	
+	// Getter/Setter for firstName
+	public String getLastName() {
+		return firstName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	
 	// Getter/Setter for jobPosition
