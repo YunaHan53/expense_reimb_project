@@ -1,7 +1,5 @@
 package models;
 
-import java.util.List;
-
 public class User {
 
 	// Declaring user variables
@@ -12,7 +10,6 @@ public class User {
 	private String email;
 	private String pass;
 	private String jobPosition;
-	public List<Mail> mailbox;
 
 	
 	// Custom constructor

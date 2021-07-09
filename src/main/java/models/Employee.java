@@ -2,7 +2,7 @@ package models;
 
 import java.util.List;
 
-public class Employee {
+public class Employee extends User{
 
 	// Declaring employee variables
 	private int empNo;

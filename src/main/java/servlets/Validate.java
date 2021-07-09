@@ -18,6 +18,7 @@ public class Validate {
             ResultSet rs =ps.executeQuery();
             st = rs.next();
 
+            System.out.println(rs);
         }
         catch(Exception e) {
             e.printStackTrace();

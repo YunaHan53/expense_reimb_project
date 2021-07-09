@@ -1,41 +1,41 @@
 package models;
 
-public class Manager {
+import java.util.List;
+
+public class Manager extends User{
 
 	// Declaring manager variables
-	private int manNo;
-	private String manName;
-
+	private int userId;
+	private List<Employee> managedEmployees;
 	
 	// Custom constructor
-	public Manager(int manNo, String manName, double salary) {
-		this.manNo = manNo;
-		this.manName = manName;
+	public Manager(int userId, String manName) {
+		this.userId = userId;
 	}
 
 
 	// Getter/Setter for Employee ID
-	public int getManNo() {
-		return manNo;
+	public int getUserId() {
+		return userId;
 	}
-	public void setEmpNo(int empNo) {
-		this.manNo = empNo;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	
 	
 	// Getter/Setter for Employee Name
-	public String getManName() {
-		return manName;
+	public List<Employee> getManagedEmployee() {
+		return managedEmployees;
 	}
-	public void setManName(String manName) {
-		this.manName = manName;
+	public void setManagedEmployees(List<Employee> managedEmployees) {
+		this.managedEmployees = managedEmployees;
 	}
 	
 	
 	@Override
 	public String toString() {
-		return "Manager ID: " + manNo + 
-				", Name: " + manName + 
+		return "Manager ID: " + userId + 
+				", Managed Employees:  " + managedEmployees   + 
 				"\n";
 	}
 	
