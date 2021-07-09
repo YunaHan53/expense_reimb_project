@@ -37,7 +37,7 @@ public class RegisterServlet extends HttpServlet {
         
         try {
     		Connection con = ConnectionUtil.getConnection();
-    		String QUERY = "insert into UserRegister(userId,firstName,lastName,userName,email,pass,jobPosition) values (?,?,?,?,?,?,?) ";
+    		String QUERY = "insert into UserRegister(userId,firstName,lastName,userName,email,pass,jobPosition) values (?,?,?,?,?,?,?)";
 
             PreparedStatement ps = con.prepareStatement(QUERY);
 
@@ -56,8 +56,8 @@ public class RegisterServlet extends HttpServlet {
             }
         
         }
-        catch(Exception se) {
-            se.printStackTrace();
+        catch(Exception e) {
+            e.printStackTrace();
         }
 	
     }

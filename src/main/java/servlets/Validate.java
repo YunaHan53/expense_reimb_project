@@ -11,9 +11,10 @@ public class Validate {
         try {
     		Connection con = ConnectionUtil.getConnection();
 
-            PreparedStatement ps = con.prepareStatement("select * from UserRegister where userName=? and pass=?");
+            PreparedStatement ps = con.prepareStatement("select userName,pass from UserRegister where userName=? and pass=?");
             ps.setString(1, userName);
             ps.setString(2, pass);
+                        
             ResultSet rs =ps.executeQuery();
             st = rs.next();
 
