@@ -3,16 +3,21 @@ package servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
+
 
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID =1L;
 
+	private static final Logger log = LogManager.getLogger(LoginServlet.class);
+	
 	@Override
 	protected void doGet(HttpServletRequest request,HttpServletResponse response) 
 			throws ServletException, IOException{
@@ -28,17 +33,29 @@ public class LoginServlet extends HttpServlet {
         String userName = request.getParameter("userName");
         String pass = request.getParameter("pass");
         
-        if(Validate.checkUser(userName, pass))
-        {
-            RequestDispatcher rs = request.getRequestDispatcher("Welcome");
-            rs.forward(request, response);
+        log.info("Validating credentials...");
+        
+        try {
+            if(Validate.checkUser(userName, pass))
+            {
+                out.println("Signed in Successfully!");
+                response.sendRedirect("welcome.html");
+                log.info("Validated!!!");
+            }
+            else
+            {
+               out.println("Username or Password incorrect. Please try again.");
+               response.sendRedirect("index.html");
+               
+               log.error("Validation error, please check your username and password.");
+
+               System.out.println(userName + " " + pass);
+
+            }
+        } catch (Exception e) {
+        	e.printStackTrace();
         }
-        else
-        {
-           out.println("Username or Password incorrect");
-           RequestDispatcher rs = request.getRequestDispatcher("index.html");
-           rs.include(request, response);
-        }
+
     }  
 
 
