@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import con.ConnectionUtil;
+import services.UserServicesImp;
 
 public class RegisterServlet extends HttpServlet {
     
@@ -27,33 +28,32 @@ public class RegisterServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 	
-        int userId = Integer.parseInt(request.getParameter("userId"));
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String userName = request.getParameter("userName");
 		String email = request.getParameter("email");
 		String pass = request.getParameter("pass");
 		String jobPosition = request.getParameter("jobPosition");
+		String pass2 = request.getParameter("passConfirm");
+
         
+		UserServicesImp usi = new UserServicesImp();
+		int id = usi.generateUserId();
+		
         try {
-    		Connection con = ConnectionUtil.getConnection();
-    		String QUERY = "insert into UserRegister(userId,firstName,lastName,userName,email,pass,jobPosition) values (?,?,?,?,?,?,?)";
-
-            PreparedStatement ps = con.prepareStatement(QUERY);
-
-            ps.setInt(1, userId);
-            ps.setString(2, firstName);
-            ps.setString(3, lastName);
-            ps.setString(4, userName);
-            ps.setString(5, email);
-            ps.setString(6, pass);
-            ps.setString(7, jobPosition);
-
-            int i = ps.executeUpdate();
             
-            if(i > 0) {
+
+            
+            if(pass.equals(pass2)) {
+            	usi.register(id, firstName, lastName, userName, email, pass, jobPosition, pass2);
                 out.println("You are sucessfully registered");
+                response.sendRedirect("welcome.html");
+            } else {
+                out.println("Username or Password incorrect. Please try again.");
+                response.sendRedirect("register.html");
             }
+	    	System.out.println("Got to register servlet try block");
+
         
         }
         catch(Exception e) {
@@ -62,36 +62,3 @@ public class RegisterServlet extends HttpServlet {
 	
     }
 }
-
-//public class RegisterServlet extends HttpServlet {
-//  private static final long serialVersionUID = 1L;
-//
-//  public RegisterServlet() {
-//	  super();
-//  }
-//  
-//  protected void doPost(HttpServletRequest request, HttpServletResponse response) 
-//		  throws ServletException, IOException {
-//	  response.setContentType("text/html");
-//	  	int userId = Integer.parseInt(request.getParameter("userId"));
-//		String firstName = request.getParameter("firstName");
-//		String lastName = request.getParameter("lastName");
-//		String userName = request.getParameter("userName");
-//		String email = request.getParameter("email");
-//		String pass = request.getParameter("pass");
-//		String jobPosition = request.getParameter("jobPosition");
-//
-//		
-//		User u = new User(userId, firstName, lastName, userName, email, pass, jobPosition);
-//		UserDAO dao = new UserDAO();
-//		String result = dao.Registerindb(u);
-//
-//	    if (result.equals("User is registered")) {
-//	        RequestDispatcher dispatcher = request.getRequestDispatcher("index.html");
-//	        dispatcher.include(request, response);
-//	      } else {
-//	        RequestDispatcher dispatcher = request.getRequestDispatcher("register.html");
-//	        dispatcher.include(request, response);
-//	      }
-//		  }
-//}
