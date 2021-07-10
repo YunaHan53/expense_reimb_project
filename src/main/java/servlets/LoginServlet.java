@@ -75,17 +75,16 @@ public class LoginServlet extends HttpServlet {
         String userName = request.getParameter("username");
         String pass = request.getParameter("pass");
         
-        User u = new User();
-        
-        u.setUserName(userName);
-        u.setPassword(pass);
+//        User u = new User();
+//        
+//        u.setUserName(userName);
+//        u.setPassword(pass);
         
         System.out.println(userName + " " + pass);
 
         
         log.info("Validating credentials...");
         
-//		String QUERY = "select username, pass from userregister where username=? and pass=?";
         try {
 
             if(Validate.checkUser(userName, pass))
@@ -104,8 +103,6 @@ public class LoginServlet extends HttpServlet {
                out.println("Username or Password incorrect. Please try again.");
                
                log.error("Validation error, please check your username and password.");
-
-//               System.out.println(userName + " " + pass);
 
             }
         } catch (Exception e) {
