@@ -16,7 +16,7 @@ public class Validate {
             ps.setString(2, pass);
                         
             ResultSet rs =ps.executeQuery();
-//            st = rs.next();
+            st = rs.next();
 
             System.out.println(rs);
         }
