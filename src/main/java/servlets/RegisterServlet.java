@@ -10,12 +10,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import con.ConnectionUtil;
 import services.UserServicesImp;
 
 public class RegisterServlet extends HttpServlet {
     
 	private static final long serialVersionUID = 1L;
+	
+	private static final Logger log = LogManager.getLogger(LoginServlet.class);
+
 	
 	@Override
 	protected void doGet(HttpServletRequest request,HttpServletResponse response) 
@@ -40,6 +46,8 @@ public class RegisterServlet extends HttpServlet {
 		UserServicesImp usi = new UserServicesImp();
 		int id = usi.generateUserId();
 		
+        log.info("Registering new user...");
+
         try {
             
 
@@ -47,9 +55,13 @@ public class RegisterServlet extends HttpServlet {
             if(pass.equals(pass2)) {
             	usi.register(id, firstName, lastName, userName, email, pass, jobPosition, pass2);
                 out.println("You are sucessfully registered");
+                log.info("Registered Successfully!!!");
+
                 response.sendRedirect("welcome.html");
             } else {
                 out.println("Username or Password incorrect. Please try again.");
+                log.error("Registration failed... please check that all fields are filled out");
+
                 response.sendRedirect("register.html");
             }
 	    	System.out.println("Got to register servlet try block");
