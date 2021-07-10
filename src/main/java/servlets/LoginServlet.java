@@ -66,8 +66,8 @@ public class LoginServlet extends HttpServlet {
 		request.getRequestDispatcher("/login.html").forward(request, response);
 	}
 
-		 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	@Override
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
@@ -83,7 +83,11 @@ public class LoginServlet extends HttpServlet {
         
         log.info("Validating credentials...");
         
+//		String QUERY = "select userName,pass from UserRegister where userName=? and pass=?";
         try {
+//        	Connection con = ConnectionUtil.getConnection();
+//			Statement stmt = con.createStatement();
+//			ResultSet rs = stmt.executeQuery(QUERY)
             if(Validate.checkUser(userName, pass))
             {
                 response.sendRedirect("welcome.html");
