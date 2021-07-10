@@ -1,6 +1,6 @@
-.bg {
+body {
   background-image:
-    url("../images/sunset.jpeg");
+    url("./images/sunset.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
 }

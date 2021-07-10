@@ -5,8 +5,7 @@
 <title>Login</title>
 <style>
 body {
-  background-image:
-    url('https://image.shutterstock.com/image-photo/lime-retro-pastel-paper-background-260nw-598436903.jpg');
+  background-image: url('https://i1.wp.com/striv.tv/wp-content/uploads/2020/09/simple-background-backgrounds-passion-simple-1-5c9b95d2b9dfb.png?ssl=1');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -17,10 +16,11 @@ body {
   crossorigin="anonymous"></script>
 <script type="text/javascript"
     src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
 </head>
 <body>
 
-<form action="LoginServlet" method="post">
+<form id="login" action="LoginServlet" method="post">
     <h1 align="center" style="margin-top: 5%">Login Form</h1>
     <table align="center" style="margin-top: 10%">
       <tr>
@@ -33,29 +33,37 @@ body {
       </tr>
       <tr>
         <td></td>
-        <td><input type="submit" value="login" id="button-1" /></td>
+        <td><input type="submit" value="Login" id="button-1" />
+        <input type="button" class="back" value="Back" id="button-1" /></td>
       </tr>
     </table>
 </form>
 
 </body>
-<script type="text/javascript">
- 
-    $(document).ready(function() {
-        $("#loginForm").validate({
-            rules: {
-                username: "required",
+<script>
+$(document).ready(function() {
+	$("#login").validate({
+        rules: {
+            username: "required",
+     
+            pass: "required"
+        },
          
-                password: "required"
-            },
+        messages: {
+            username: "Please enter username",
              
-            messages: {
-                username: "Please enter username",
-                 
-                password: "Please enter password"
-            }
-        });
- 
+            pass: "Please enter password"
+        }
     });
+ 
+});
+
+$('.back').on('click', function(event) {
+event.preventDefault(); 
+let url = $(this).data('target');
+location.replace('index.html');
+});
+
 </script>
+
 </html>
