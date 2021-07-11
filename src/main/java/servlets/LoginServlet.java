@@ -18,6 +18,7 @@ import org.apache.log4j.Logger;
 
 import con.ConnectionUtil;
 import models.User;
+import services.UserServicesImp;
 
 
 
@@ -42,31 +43,27 @@ public class LoginServlet extends HttpServlet {
         String userName = request.getParameter("username");
         String pass = request.getParameter("pass");
         
-//        User u = new User();
-//        
-//        u.setUserName(userName);
-//        u.setPassword(pass);
-        
-        System.out.println(userName + " " + pass);
+//        System.out.println(userName + " " + pass);
+		UserServicesImp usi = new UserServicesImp();
 
         
         log.info("Validating credentials...");
         
         try {
 
-            if(Validate.checkUser(userName, pass))
+            if(usi.login(userName, pass))
             {
                 response.sendRedirect("welcome.html");
                 out.println("Signed in Successfully!");
 
                 log.info("Validated!!!");
                 
-                System.out.println("Success! " + userName + " " + pass);
+//                System.out.println("Success! " + userName + " " + pass);
 
             }
             else
             {
-               response.sendRedirect("index.html");
+               response.sendRedirect("login.html");
                out.println("Username or Password incorrect. Please try again.");
                
                log.error("Validation error, please check your username and password.");

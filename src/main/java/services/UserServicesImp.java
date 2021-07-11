@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import con.ConnectionUtil;
-import models.User;
 
 public class UserServicesImp implements UserServices {
 
@@ -43,8 +42,32 @@ public class UserServicesImp implements UserServices {
 		      return false;
 		    }
 		    return true;
-		}	
+		}
+	
+	
+	// Login
+    public boolean login(String userName, String pass) 
+    {
+        boolean st =false;
+        try {
+    		Connection con = ConnectionUtil.getConnection();
 
+            PreparedStatement ps = con.prepareStatement("select userName,pass from UserRegister where userName=? and pass=?");
+            ps.setString(1, userName);
+            ps.setString(2, pass);
+                        
+            ResultSet rs =ps.executeQuery();
+            st = rs.next();
+
+            System.out.println(rs);
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+        return st;                 
+    }
+
+    
 	// Generate User Id
 	public int generateUserId() {
 
@@ -83,22 +106,5 @@ public class UserServicesImp implements UserServices {
 	public void forgotPassword(String username) {
 		
 	}
-	
-	// Login
-	public User login(String userName, String pass) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	// Logout
-	public void logout() {
-		
-	}
-
-
-
-
-
-
 
 }
