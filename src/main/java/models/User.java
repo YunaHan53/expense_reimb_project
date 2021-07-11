@@ -15,22 +15,18 @@ public class User {
 	// Custom constructor
 	public User(int userId, String firstName, String lastName, String userName, String pass, String email, String jobPosition) {
 		this.userId = userId;
-		this.setFirstName(firstName);
+		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userName = userName;
 		this.pass = pass;
 		this.email = email;
-		this.setJobPosition(jobPosition);
+		this.jobPosition = jobPosition;
 	}
-
-
 
 
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
-
-
 
 
 	// Getter/Setter for User ID
@@ -41,6 +37,23 @@ public class User {
 		this.userId = userId;
 	}
 	
+	// Getter/Setter for firstName
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	// Getter/Setter for lastName
+	public String getLastName() {
+		return firstName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 	
 	// Getter/Setter for User Name
 	public String getUserName() {
@@ -65,24 +78,6 @@ public class User {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	
-	// Getter/Setter for firstName
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	
-	// Getter/Setter for firstName
-	public String getLastName() {
-		return firstName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
 	}
 	
 	// Getter/Setter for jobPosition

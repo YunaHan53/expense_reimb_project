@@ -2,8 +2,6 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import con.ConnectionUtil;
 import services.UserServicesImp;
 
 public class RegisterServlet extends HttpServlet {
@@ -57,7 +54,7 @@ public class RegisterServlet extends HttpServlet {
                 out.println("You are sucessfully registered");
                 log.info("Registered Successfully!!!");
 
-                response.sendRedirect("welcome.html");
+                response.sendRedirect("login.html");
             } else {
                 out.println("Username or Password incorrect. Please try again.");
                 log.error("Registration failed... please check that all fields are filled out");

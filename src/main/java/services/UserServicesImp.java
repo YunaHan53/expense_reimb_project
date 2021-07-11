@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import con.ConnectionUtil;
+import models.User;
 
 public class UserServicesImp implements UserServices {
 
@@ -46,25 +47,30 @@ public class UserServicesImp implements UserServices {
 	
 	
 	// Login
-    public boolean login(String userName, String pass) 
-    {
-        boolean st =false;
+    public User login(String userName, String pass, String jobPosition) {
+    	User u = new User();
+
         try {
     		Connection con = ConnectionUtil.getConnection();
 
-            PreparedStatement ps = con.prepareStatement("select userName,pass from UserRegister where userName=? and pass=?");
+            PreparedStatement ps = con.prepareStatement("select * from userregister where username = ? and pass = ? and jobposition = ? ");
             ps.setString(1, userName);
             ps.setString(2, pass);
+            ps.setString(3, jobPosition);
                         
             ResultSet rs =ps.executeQuery();
-            st = rs.next();
 
-            System.out.println(rs);
+            while(rs.next()) {
+            	u.setUserName(rs.getString("username"));
+            	u.setPassword(rs.getString("pass"));
+            	u.setJobPosition(rs.getString("jobPosition"));
+            }
+            System.out.println(userName + pass + jobPosition);
         }
         catch(Exception e) {
             e.printStackTrace();
         }
-        return st;                 
+        return u;                 
     }
 
     
@@ -106,5 +112,6 @@ public class UserServicesImp implements UserServices {
 	public void forgotPassword(String username) {
 		
 	}
+
 
 }
