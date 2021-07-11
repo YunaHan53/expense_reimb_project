@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
         
         try {
 
-            if(usi.login(userName, pass, jobPosition) != null)
+            if((u = usi.login(userName, pass, jobPosition)) != null)
             {
             	if(u.getJobPosition().equalsIgnoreCase("manager")) {
                     response.sendRedirect("managerpage.html");

@@ -53,10 +53,9 @@ public class UserServicesImp implements UserServices {
         try {
     		Connection con = ConnectionUtil.getConnection();
 
-            PreparedStatement ps = con.prepareStatement("select * from userregister where username = ? and pass = ? and jobposition = ? ");
+            PreparedStatement ps = con.prepareStatement("select * from userregister where username = ? and pass = ? ");
             ps.setString(1, userName);
             ps.setString(2, pass);
-            ps.setString(3, jobPosition);
                         
             ResultSet rs =ps.executeQuery();
 
@@ -65,7 +64,7 @@ public class UserServicesImp implements UserServices {
             	u.setPassword(rs.getString("pass"));
             	u.setJobPosition(rs.getString("jobPosition"));
             }
-            System.out.println(userName + pass + jobPosition);
+            System.out.println("USI " + userName + pass + jobPosition);
         }
         catch(Exception e) {
             e.printStackTrace();
