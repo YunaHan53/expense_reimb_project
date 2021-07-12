@@ -3,23 +3,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html">
 <title>Login</title>
-<style>
-body {
-  background-image: url('https://i1.wp.com/striv.tv/wp-content/uploads/2020/09/simple-background-backgrounds-passion-simple-1-5c9b95d2b9dfb.png?ssl=1');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="css/styles.css">
 <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
 <script type="text/javascript"
     src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.min.js"></script>
-<script type="text/javascript" src="js/app.js"></script>
 </head>
 <body>
-
+	<header>
+		<nav align="center" class="navbar navbar-expand-md navbar-dark">
+			<button class="navbar-nav nav-btns"><a href="index.html">Home</a></button>
+			<button class="navbar-nav nav-btns"><a href="register.html">Register</a></button>
+		</nav>
+	</header>
 <form id="login" action="LoginServlet" method="post">
     <h1 align="center" style="margin-top: 5%">Login Form</h1>
     <table align="center" style="margin-top: 10%">
@@ -38,24 +36,21 @@ body {
       </tr>
     </table>
 </form>
-
+<script type="text/javascript" src="js/app.js"></script>
 </body>
 <script>
-$(document).ready(function() {
+	$(document).ready(function() {
 	$("#login").validate({
         rules: {
             username: "required",
-     
             pass: "required"
         },
          
         messages: {
-            username: "Please enter username",
-             
+            username: "Please enter username",       
             pass: "Please enter password"
         }
-    });
- 
+    }); 
 });
 
 $('.back').on('click', function(event) {
@@ -63,7 +58,5 @@ event.preventDefault();
 let url = $(this).data('target');
 location.replace('index.html');
 });
-
 </script>
-
 </html>
