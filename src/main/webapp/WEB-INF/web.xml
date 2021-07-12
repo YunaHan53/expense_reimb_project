@@ -14,8 +14,8 @@
 </servlet>
 
 <servlet>  
-	<servlet-name>Welcome</servlet-name>  
-	<servlet-class>servlets.Welcome</servlet-class>  
+	<servlet-name>UserServlet</servlet-name>  
+	<servlet-class>servlets.UserServlet</servlet-class>  
 </servlet>
 
 <servlet-mapping>  
@@ -29,8 +29,8 @@
 </servlet-mapping>
 
 <servlet-mapping>  
-	<servlet-name>Welcome</servlet-name>  
-	<url-pattern>/welcome</url-pattern>  
+	<servlet-name>UserServlet</servlet-name>  
+	<url-pattern>/UserServlet</url-pattern>  
 </servlet-mapping>
 
   <welcome-file-list>
