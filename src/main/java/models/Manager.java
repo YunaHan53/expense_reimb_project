@@ -9,7 +9,7 @@ public class Manager extends User{
 	private List<Employee> managedEmployees;
 	
 	// Custom constructor
-	public Manager(int userId, String manName) {
+	public Manager(int userId) {
 		this.userId = userId;
 	}
 
