@@ -1,6 +1,6 @@
 # Expense Reimbursement System (ERS)
 
-##**Requirements**
+## **Requirements**
 
 Simulate some business 30%
 Documentation 5% - (javadocs)
@@ -10,7 +10,7 @@ Presentation 5%
 Data Persistence 5%
 Logging 5%
 
-##**User Stories**
+## **User Stories**
 
 -An Employee can login
 -An Employee can view the Employee Homepage
@@ -33,7 +33,7 @@ Logging 5%
 -A Manager can view reimbursement requests from a single Employee
 -A Manager can register an Employee, which sends the Employee an email with their username and temp password (optional)
 
-##**Technologies**
+## **Technologies**
 
 -Java 1.8
 -Servlets
@@ -45,7 +45,8 @@ Logging 5%
 -JUnit
 -log4j
 
-##**Environment**
-Tomcat
-IDE
-DBeaver
+## **Environment**
+
+-Tomcat
+-IDE
+-DBeaver
